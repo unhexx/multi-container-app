@@ -1,12 +1,12 @@
-# Comments are provided throughout this file to help you get started.
-# If you need more help, visit the Docker compose reference guide at
+# В этом файле содержатся комментарии, которые помогут вам начать работу.
+# Если вам нужна дополнительная помощь, обратитесь к справочному руководству Docker compose по адресу
 # https://docs.docker.com/compose/compose-file/
 
-# Here the instructions define your application as two services called "todo-app" and “todo-database”
-# The service “todo-app” is built from the Dockerfile in the /app directory,
-# and the service “todo-database” uses the official MongoDB image 
-# from Docker Hub - https://hub.docker.com/_/mongo. 
-# You can add other services your application may depend on here.
+# Здесь инструкции определяют ваше приложение как две службы, называемые "todo-app" и “todo-database”.
+# Сервис “todo-app” создан на основе файла Docker в каталоге /app,
+#, а сервис “todo-database” использует официальный образ MongoDB 
+# из Docker Hub - https://hub.docker.com/_/mongo. 
+# Здесь вы можете добавить другие сервисы, от которых может зависеть ваше приложение.
 
 services:
   todo-app:
@@ -29,10 +29,10 @@ services:
 
   todo-database:
     image: mongo:6
-    #volumes: 
-    #  - database:/data/db
+    volumes: 
+      - multi-container-app_data:/data/db
     ports:
       - 27017:27017
 
-#volumes:
-  #database:
+volumes:
+  multi-container-app_data:
